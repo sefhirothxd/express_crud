@@ -7,10 +7,12 @@ const {
   deleteTodo,
 } = require("../controllers/todo.js");
 
+const authenticated = require("../middlewares/auth.js");
+
 // Init express router
 const router = express.Router();
 
-router.get("/todos", getTodos);
+router.get("/todos", authenticated, getTodos);
 
 router.post("/todos", createTodo);
 

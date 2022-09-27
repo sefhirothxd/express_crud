@@ -19,7 +19,9 @@ const createTodo = async (req, res) => {
       message: "Todo Creado",
     });
   } catch (err) {
-    console.log(err);
+    res.status(500).json({
+      message: "Error al crear el Todo",
+    });
   }
 };
 
@@ -46,7 +48,7 @@ const updateTodo = async (req, res) => {
   }
 };
 
-// Delete school by id
+// Delete todo by id
 const deleteTodo = async (req, res) => {
   try {
     const todo = await Todo.findByPk(req.params.id);
