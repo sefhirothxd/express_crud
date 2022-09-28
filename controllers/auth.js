@@ -39,6 +39,7 @@ const login = async (req, res) => {
   const { correo, password } = req.body;
   try {
     const usuario = await Usuario.findOne({ where: { correo } });
+    console.log("verificando usuario./...!!!", usuario);
     if (!usuario) {
       res.status(404).json({
         message: "Usuario no encontrado",

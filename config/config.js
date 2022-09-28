@@ -11,7 +11,7 @@ const config = {
   test: {
     username: process.env.DB_TEST_USER || "sefhiroth",
     password: process.env.DB_TEST_PASSWORD || "probando",
-    database: process.env.DB_TEST_DB_NAME || "larnudb",
+    database: process.env.DB_TEST_DB_NAME || "test_larnu",
     host: process.env.DB_TEST_HOST || "127.0.0.1",
     port: process.env.DB_TEST_PORT || 5432,
     dialect: "postgres",

@@ -15,7 +15,7 @@ const createTodo = async (req, res) => {
   try {
     console.log(req.body);
     await Todo.create(req.body);
-    res.json({
+    res.status(201).json({
       message: "Todo Creado",
     });
   } catch (err) {
@@ -40,8 +40,8 @@ const updateTodo = async (req, res) => {
         id: req.params.id,
       },
     });
-    res.json({
-      message: "Todo Updated",
+    res.status(204).json({
+      message: "Todo Updated successfully",
     });
   } catch (err) {
     console.log(err);
@@ -63,8 +63,8 @@ const deleteTodo = async (req, res) => {
         id: req.params.id,
       },
     });
-    res.json({
-      message: "Todo Deleted",
+    res.status(204).json({
+      message: "Todo Deleted successfully",
     });
   } catch (err) {
     console.log(err);
