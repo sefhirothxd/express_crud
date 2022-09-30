@@ -7,6 +7,11 @@ const config = {
     database: process.env.DB_DEV_DB_NAME,
     host: process.env.DB_DEV_HOST,
     dialect: "postgres",
+    dialectOptions: {
+      ssl: {
+        require: "true",
+      },
+    },
   },
   test: {
     username: process.env.DB_TEST_USER || "sefhiroth",
