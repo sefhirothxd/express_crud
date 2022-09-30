@@ -12,7 +12,7 @@ const db = new Sequelize(config.database, config.username, config.password, {
   dialect: "postgres",
   dialectOptions: {
     ssl: {
-      require: "true",
+      require: env === "development" ? true : false,
     },
   },
   define: {
