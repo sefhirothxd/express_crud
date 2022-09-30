@@ -7,13 +7,27 @@ const config = _config[env];
 console.log("env: ", env);
 console.log("config: ", config);
 // create connection
-const db = new Sequelize(config.database, config.username, config.password, {
-  host: config.host,
-  dialect: "postgres",
-  define: {
-    timestamps: false,
-  },
-});
+env === "development"
+  ? (db = new Sequelize(config.database, config.username, config.password, {
+      host: config.host,
+      dialect: "postgres",
+      dialectOptions: {
+        ssl: {
+          require: true,
+        },
+      },
+      define: {
+        timestamps: false,
+      },
+    }))
+  : (db = new Sequelize(config.database, config.username, config.password, {
+      host: config.host,
+      dialect: "postgres",
+      define: {
+        timestamps: false,
+      },
+    }));
+
 // const db = new Sequelize(process.env.DB_LINK, {
 //   dialect: "postgres",
 //   protocol: "postgres",
