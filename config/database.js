@@ -10,11 +10,6 @@ console.log("config: ", config);
 const db = new Sequelize(config.database, config.username, config.password, {
   host: config.host,
   dialect: "postgres",
-  dialectOptions: {
-    ssl: {
-      require: env === "development" ? true : false,
-    },
-  },
   define: {
     timestamps: false,
   },
