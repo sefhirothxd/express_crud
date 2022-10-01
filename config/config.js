@@ -6,7 +6,6 @@ const config = {
     password: process.env.DB_DEV_PASSWORD,
     database: process.env.DB_DEV_DB_NAME,
     host: process.env.DB_DEV_HOST,
-    port: process.env.DB_TEST_PORT || 10000,
     dialect: "postgres",
     dialectOptions: {
       ssl: {

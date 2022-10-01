@@ -18,7 +18,7 @@ db.authenticate()
   .catch((err) => console.log("Error: " + err));
 
 //server ok
-app.get("/", (req, res) => {
+app.get("/ping", (req, res) => {
   res.send("Server is running");
 });
 
