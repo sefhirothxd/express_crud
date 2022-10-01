@@ -16,15 +16,7 @@ const register = async (req, res) => {
     });
     res.status(201).json({
       message: "Usuario creado",
-      usuario: {
-        id: usuario.id,
-        nombres: usuario.nombres,
-        apellidos: usuario.apellidos,
-        edad: usuario.edad,
-        correo: usuario.correo,
-        activo: usuario.activo,
-        create: usuario.createdAt,
-      },
+      usuario,
     });
   } catch (error) {
     res.status(500).json({
@@ -39,7 +31,6 @@ const login = async (req, res) => {
   const { correo, password } = req.body;
   try {
     const usuario = await Usuario.findOne({ where: { correo } });
-    console.log("verificando usuario./...!!!", usuario);
     if (!usuario) {
       res.status(404).json({
         message: "Usuario no encontrado",
@@ -68,15 +59,7 @@ const login = async (req, res) => {
         );
         res.status(200).json({
           message: "Login correcto",
-          usuario: {
-            id: usuario.id,
-            nombres: usuario.nombres,
-            apellidos: usuario.apellidos,
-            edad: usuario.edad,
-            correo: usuario.correo,
-            activo: usuario.activo,
-            create: usuario.createdAt,
-          },
+          usuario,
           token,
         });
       }

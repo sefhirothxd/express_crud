@@ -7,7 +7,7 @@ const { DataTypes } = Sequelize;
 
 // Define schema
 const Usuario = db.define(
-  "Usuario",
+  "usuario",
   {
     id: {
       type: DataTypes.INTEGER,

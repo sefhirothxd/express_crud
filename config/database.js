@@ -8,9 +8,12 @@ console.log("env: ", env);
 console.log("config: ", config);
 // create connection
 env === "development"
-  ? (db = new Sequelize(process.env.DB_LINK, {
+  ? (db = new Sequelize(config.database, config.username, config.password, {
+      host: config.host,
       dialect: "postgres",
-      protocol: "postgres",
+      define: {
+        timestamps: false,
+      },
       dialectOptions: {
         ssl: {
           require: "true",
