@@ -16,6 +16,11 @@ db.authenticate()
   .then(() => console.log("Database connected..."))
   .catch((err) => console.log("Error: " + err));
 
+//server ok
+app.get("/", (req, res) => {
+  res.send("Server is running");
+});
+
 app.use(Router);
 app.use(RouterUsuerio);
 
