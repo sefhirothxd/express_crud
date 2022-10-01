@@ -10,7 +10,8 @@ require("dotenv").config();
 app.use(express.json());
 
 app.use(cors());
-
+app.use(Router);
+app.use(RouterUsuerio);
 //squelize authenticate
 db.authenticate()
   .then(() => console.log("Database connected..."))
@@ -20,8 +21,5 @@ db.authenticate()
 app.get("/", (req, res) => {
   res.send("Server is running");
 });
-
-app.use(Router);
-app.use(RouterUsuerio);
 
 module.exports = app;
