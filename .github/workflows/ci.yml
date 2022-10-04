@@ -5,10 +5,6 @@ on:
   pull_request:
     branches: [main]
 
-env:
-  POSTGRES_HOST: localhost
-  POSTGRES_PORT: 5432
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -30,13 +26,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "17.8"
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: docker build --file .docker/test/Dockerfile -t test_container .
 
-      - name: Installing Dependencies
-        run: npm i
-
-      - name: testing our app
-        run: npm test
+      - name: run docker tests
+        run: docker run test_container
