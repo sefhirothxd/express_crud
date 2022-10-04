@@ -1,7 +1,7 @@
 
 # Use the official lightweight Node.js 12 image.
 # https://hub.docker.com/_/node
-FROM node:17.9.1-slim
+FROM node:18
 
 # Create and change to the app directory.
 # mkdir & cd
