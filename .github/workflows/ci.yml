@@ -28,7 +28,7 @@ jobs:
 
       - uses: actions/checkout@v2
       - name: Build the Docker image
-        run: docker build --file .docker/test/DockerFile -t test_container .
+        run: docker build --file .docker/test/Dockerfile -t test_container .
 
       - name: run docker tests
         run: docker run --network="host" test_container
