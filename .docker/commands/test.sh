@@ -14,5 +14,5 @@ echo "Waiting database initialization"
 #   fi
 # done
 # rm error
-
+ls
 npm test
