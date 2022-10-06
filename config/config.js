@@ -1,4 +1,10 @@
-require("dotenv").config();
+function runDotEnv() {
+  if (process.env.ENV === "development") {
+    require("dotenv").then((dotenv) => dotenv.config({ path: ".env" }));
+  }
+}
+
+runDotEnv();
 
 const config = {
   development: {
