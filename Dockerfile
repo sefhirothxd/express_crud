@@ -16,7 +16,7 @@ COPY package*.json ./
 # package-lock.json
 
 # Install production dependencies.
-RUN npm install
+RUN npm install --production
 
 # Copy local code to the container image.
 COPY . .
@@ -25,7 +25,7 @@ COPY . .
 # index.js
 # config/
 
-RUN chmod 755 .docker/commands/test.sh
+EXPOSE 10000
 
 # Run the web service on container startup.
-CMD [".docker/commands/test.sh"]
+CMD ["node", "index.js"]
