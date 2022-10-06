@@ -14,11 +14,11 @@ const config = {
     },
   },
   test: {
-    username: process.env.DB_TEST_USER || "sefhiroth",
-    password: process.env.DB_TEST_PASSWORD || "probando",
-    database: process.env.DB_TEST_DB_NAME || "test_larnu",
-    host: process.env.DB_TEST_HOST || "127.0.0.1",
-    port: process.env.DB_TEST_PORT || 5432,
+    username: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE,
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
     dialect: "postgres",
   },
   production: {
