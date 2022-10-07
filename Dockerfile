@@ -16,7 +16,7 @@ COPY package*.json ./
 # package-lock.json
 
 # Install production dependencies.
-RUN npm install --production
+RUN npm install 
 
 # Copy local code to the container image.
 COPY . .
