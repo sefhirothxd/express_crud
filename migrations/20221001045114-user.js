@@ -29,7 +29,7 @@ module.exports = {
         defaultValue: true,
       },
       createdOn: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
       },
     });
