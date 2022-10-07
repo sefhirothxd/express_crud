@@ -31,17 +31,6 @@ module.exports = {
       createdOn: {
         type: DataTypes.DATE,
         defaultValue: Sequelize.NOW,
-        field: "created_on",
-      },
-      createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: Sequelize.NOW,
-        field: "created_at",
-      },
-      updatedAt: {
-        type: DataTypes.DATE,
-        defaultValue: Sequelize.NOW,
-        field: "updated_at",
       },
     });
   },
