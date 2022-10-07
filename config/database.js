@@ -17,12 +17,6 @@ env === "development"
       define: {
         timestamps: false,
       },
-      dialectOptions: {
-        ssl: {
-          require: true,
-          rejectUnauthorized: false,
-        },
-      },
     }))
   : (db = new Sequelize(config.database, config.username, config.password, {
       host: config.host,

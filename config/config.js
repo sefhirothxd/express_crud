@@ -2,10 +2,11 @@ require("dotenv").config();
 
 const config = {
   development: {
-    username: process.env.DB_DEV_USER,
-    password: process.env.DB_DEV_PASSWORD,
-    database: process.env.DB_DEV_DB_NAME,
-    host: process.env.DB_DEV_HOST,
+    username: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE,
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
     logging: console.log,
     dialect: "postgres",
   },
