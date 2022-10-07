@@ -15,7 +15,7 @@ const config = {
     password: process.env.POSTGRES_PASSWORD || "probando",
     database: process.env.POSTGRES_DB || "larnu_test",
     host: process.env.POSTGRES_HOST || "127.0.0.1",
-    port: process.env.PGPORT || 5432,
+    port: process.env.POSTGRES_PORT || 5432,
     dialect: "postgres",
   },
   production: {
