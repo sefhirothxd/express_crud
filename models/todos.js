@@ -24,7 +24,6 @@ const Todo = db.define(
     createdOn: {
       type: DataTypes.DATE,
       defaultValue: Sequelize.NOW,
-      field: "created_on",
     },
   },
   {
