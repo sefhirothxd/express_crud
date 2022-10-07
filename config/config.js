@@ -1,10 +1,4 @@
-function runDotEnv() {
-  if (process.env.ENV === "development") {
-    require("dotenv").then((dotenv) => dotenv.config({ path: ".env" }));
-  }
-}
-
-runDotEnv();
+require("dotenv").config();
 
 const config = {
   development: {
@@ -12,19 +6,15 @@ const config = {
     password: process.env.DB_DEV_PASSWORD,
     database: process.env.DB_DEV_DB_NAME,
     host: process.env.DB_DEV_HOST,
+    logging: console.log,
     dialect: "postgres",
-    dialectOptions: {
-      ssl: {
-        require: true,
-      },
-    },
   },
   test: {
-    username: "sefhiroth",
-    password: "probando",
-    database: "larnu_test",
-    host: "127.0.0.1",
-    port: 5432,
+    username: process.env.PGUSER || "sefhiroth",
+    password: process.env.PGPASSWORD || "probando",
+    database: process.env.PGDATABASE || "larnu_test",
+    host: process.env.PGHOST || "127.0.0.1",
+    port: process.env.PGPORT || 5432,
     dialect: "postgres",
   },
   production: {

@@ -15,7 +15,7 @@ const register = async (req, res) => {
       password: bcrypt.hashSync(password, 8),
     });
     res.status(201).json({
-      message: "Usuario creado",
+      message: "Usuario creado correctamente",
       usuario,
     });
   } catch (error) {

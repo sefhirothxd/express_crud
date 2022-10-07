@@ -34,10 +34,6 @@ const Usuario = db.define(
       type: DataTypes.BOOLEAN,
       defaultValue: true,
     },
-    createdOn: {
-      type: DataTypes.DATE,
-      defaultValue: Sequelize.NOW,
-    },
   },
   {
     tableName: "usuario",

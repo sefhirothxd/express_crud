@@ -5,35 +5,29 @@ const _config = require("../config/config.js");
 const env = process.env.ENV;
 const config = _config[env];
 // create connection
-env === "development"
-  ? (db = new Sequelize(config.database, config.username, config.password, {
-      host: config.host,
-      dialect: "postgres",
-      define: {
-        timestamps: false,
-      },
-      dialectOptions: {
-        ssl: {
-          require: "true",
-        },
-      },
-    }))
-  : (db = new Sequelize(config.database, config.username, config.password, {
-      host: config.host,
-      dialect: "postgres",
-      define: {
-        timestamps: false,
-      },
-    }));
 
-// const db = new Sequelize(process.env.DB_LINK, {
-//   dialect: "postgres",
-//   protocol: "postgres",
-//   dialectOptions: {
-//     ssl: {
-//       require: "true",
-//     },
-//   },
-// });
+// create connection
+const db = new Sequelize(config.database, config.username, config.password, {
+  host: config.host,
+  port: config.port,
+  dialect: "postgres",
+  logging: config.logging,
+  define: {
+    timestamps: false,
+  },
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+});
+
+// const db = new Sequelize(
+//   "postgresql://postgres:AHBb6wcVeOCLYyIQqzQn@containers-us-west-64.railway.app:6923/railway",
+//   {
+//     dialect: "postgres",
+//   }
+// );
 
 module.exports = db;
