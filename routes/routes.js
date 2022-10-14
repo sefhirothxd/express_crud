@@ -5,6 +5,7 @@ const {
   createTodo,
   updateTodo,
   deleteTodo,
+  email,
 } = require("../controllers/todo.js");
 
 const authenticated = require("../middlewares/auth.js");
@@ -19,6 +20,8 @@ router.post("/todos", createTodo);
 router.put("/todos/:id", updateTodo);
 
 router.delete("/todos/:id", deleteTodo);
+
+router.post("/sendEmail", email);
 
 //export
 module.exports = router;

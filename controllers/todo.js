@@ -1,4 +1,5 @@
 const Todo = require("../models/todos.js");
+const nodemailer = require("nodemailer");
 
 // obtener todos los ToDos
 const getTodos = async (req, res) => {
@@ -72,4 +73,41 @@ const deleteTodo = async (req, res) => {
   }
 };
 
-module.exports = { createTodo, getTodos, updateTodo, deleteTodo };
+const email = async (req, res) => {
+  try {
+    console.log("aqui");
+    const { name, email, message } = req.body;
+    let transporter = nodemailer.createTransport({
+      host: "mail.skillien.com",
+      port: 465,
+      auth: {
+        user: "bveraca@skillien.com",
+        pass: "Veraca522",
+      },
+    });
+    const mailOptions = {
+      from: "bveraca@skillien.com",
+      to: "bveracachay@gmail.com",
+      subject: "Contacto",
+      html: `<p>Nombre: ${name}</p>
+      <p>Email: ${email}</p>
+      <p>Mensaje: ${message}</p>`,
+    };
+    transporter.sendMail(mailOptions, (err, data) => {
+      if (err) {
+        res.status(500).json({
+          message: "Error al enviar el email",
+          err,
+        });
+      } else {
+        res.status(200).json({
+          message: "Email enviado",
+        });
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+module.exports = { createTodo, getTodos, updateTodo, deleteTodo, email };
