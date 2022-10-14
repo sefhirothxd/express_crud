@@ -1,5 +1,6 @@
 const Todo = require("../models/todos.js");
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 // obtener todos los ToDos
 const getTodos = async (req, res) => {
@@ -78,11 +79,11 @@ const email = async (req, res) => {
     console.log("aqui");
     const { name, email, message } = req.body;
     let transporter = nodemailer.createTransport({
-      host: "mail.skillien.com",
+      host: process.env.EMAIL_HOST,
       port: 465,
       auth: {
-        user: "bveraca@skillien.com",
-        pass: "Veraca522",
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD,
       },
     });
     const mailOptions = {
